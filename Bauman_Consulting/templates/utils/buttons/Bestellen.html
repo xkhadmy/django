@@ -1,0 +1,182 @@
+{% extends 'Home.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container-fluid background_color border_background_color">
+    <div class="divstyle">
+        <div class="row m-1 container-fluid">
+            <div class="col-12 col-lg-12 m-2 text-center" style="border-bottom: 1px solid black;">
+                <h1><b>Baumann Consulting</b></h1><br/>
+            </div>
+            
+            <div class="col-12 col-lg-4">
+                <h2>
+                    <h1>Buchbestellung:</h1>
+                    <br><br>
+                    <b>Preise:</b> <br>
+                    Band 1: <br>
+                    Leitfaden zum Aufbau eines
+                    betrieblichen Sicherheitsmanagements <br><br>
+                    <b>50.00 CHF/Stück</b> (inkl. MwSt. und Versandt innerhalb der Schweiz)
+                    <br><br>
+                    Band 2:
+                    <br>
+                    Betriebliches Sicherheitsmanagement für
+                    Kernkraftwerke mit Leichtwasserreaktoren
+                    In der Schweiz<br><br>
+                    <b>75.00 CHF/Stück</b>  (inkl. MwSt. und Versandt innerhalb der Schweiz)
+                    <br><br>
+                    Nach erfolgter Bestellung erhalten Sie per E-Mail eine
+                    Rechnung und Einzahlungsschein mit QR-Code. Nach erfolgter Bezahlung erfolgt die Lieferung innerhalb von max. 3 Wochen. <br>
+                    Bei Lieferungen ausserhalb der Schweiz ist der Rechnungsbetrag abhängig vom Land und der zu liefernden Menge.
+
+                </h2>
+            </div>
+            <div class="col-12 col-lg-4">
+                    <b>
+                         <form action="{% url 'kaufen_form' %}" method="POST" class="  col-12">
+                            {% csrf_token %}
+                            <div class="row">
+                                Rechnungsadresse
+                            </div>
+                        <div class=" custom_form2">    
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="vorname">Vorname:</label>
+                                    <input type="text" id="vorname" name="vorname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="nachname">Nachname:</label>
+                                    <input type="text" id="nachname" name="nachname" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="firma">Firma:</label>
+                                    <input type="text" id="firma" name="firma" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="telephone">Telephone:</label>
+                                    <input type="text" id="telephone" name="telephone" required>
+                                </div>
+                            </div>
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" required>
+                            <label for="betreff">Betreff:</label>
+                            <input type="text" id="betreff" name="betreff" required>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label for="strasse">Strasse:</label>
+                                    <input type="text" id="strasse" name="strasse" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="hausnummer">Hausnummer:</label>
+                                    <input type="text" id="hausnummer" name="hausnummer" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="plz">PLZ:</label>
+                                    <input type="text" id="plz" name="plz" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="ort">Ort:</label>
+                                    <input type="text" id="ort" name="ort" required>
+                                </div>
+                            </div>
+                            <label for="nachricht">Bitte geben Sie die gewünschte Anzahl pro Band an:</label>
+                            <textarea id="nachricht" name="nachricht" rows="4" required></textarea>
+                            <button class="btn btn-primary btn-lg" type="button" onclick="copyFormData()">Lieferadresse gleich Rechnungsadresse</button>
+                        </div>  
+                    </b>
+                 
+            </div> 
+            <div class="col-12 col-lg-4 ">
+                    <b>
+                            <div class="row">
+                                Lieferadresse
+                            </div>
+                        <div class=" custom_form2">
+                             
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="vorname_l">Vorname:</label>
+                                    <input type="text" id="vorname_l" name="vorname_l" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="nachname_l">Nachname:</label>
+                                    <input type="text" id="nachname_l" name="nachname_l" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="firma_l">Firma:</label>
+                                    <input type="text" id="firma_l" name="firma_l" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="telephone_l">Telephone:</label>
+                                    <input type="text" id="telephone_l" name="telephone_l" required>
+                                </div>
+                            </div>
+                            <label for="email_l">E-mail:</label>
+                            <input type="email" id="email_l" name="email_l" required>
+                            <label for="betreff_l">Betreff:</label>
+                            <input type="text" id="betreff_l" name="betreff_l" required>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label for="strasse_l">Strasse:</label>
+                                    <input type="text" id="strasse_l" name="strasse_l" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="hausnummer_l">Hausnummer:</label>
+                                    <input type="text" id="hausnummer_l" name="hausnummer_l" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="plz_l">PLZ:</label>
+                                    <input type="text" id="plz_l" name="plz_l" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="ort_l">Ort:</label>
+                                    <input type="text" id="ort_l" name="ort_l" required>
+                                </div>
+                            </div>
+                            <label for="nachricht_l">Nachricht:</label>
+                            <textarea id="nachricht_l" name="nachricht_l" rows="4" required></textarea>
+                            <button class="btn btn-primary btn-lg" type="submit">Bestellen</button>
+                        </div>
+                    </b>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Функция для копирования данных из первой формы во вторую
+    function copyFormData() {
+        // Получаем значения из полей первой формы
+        var vorname = document.getElementById('vorname').value;
+        var nachname = document.getElementById('nachname').value;
+        var firma = document.getElementById('firma').value;
+        var telephone = document.getElementById('telephone').value;
+        var email = document.getElementById('email').value;
+        var strasse = document.getElementById('strasse').value;
+        var hausnummer = document.getElementById('hausnummer').value;
+        var plz = document.getElementById('plz').value;
+        var ort = document.getElementById('ort').value; 
+        var betreff = document.getElementById('betreff').value;
+        var nachricht = document.getElementById('nachricht').value;
+
+        // Заполняем поля второй формы данными из первой
+        document.getElementById('vorname_l').value = vorname;
+        document.getElementById('nachname_l').value = nachname;
+        document.getElementById('firma_l').value = firma;
+        document.getElementById('telephone_l').value = telephone;
+        document.getElementById('email_l').value = email;
+        document.getElementById('strasse_l').value = strasse;
+        document.getElementById('hausnummer_l').value = hausnummer;
+        document.getElementById('plz_l').value = plz;
+        document.getElementById('ort_l').value = ort;
+        document.getElementById('betreff_l').value = betreff;
+        document.getElementById('nachricht_l').value = nachricht;
+    }
+</script>
+{% endblock %}

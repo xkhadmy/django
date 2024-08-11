@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link href="{% static 'css/my_style.css' %}" rel="stylesheet">
+    <title>Baumann_Consulting</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header, .footer {
+            flex: 0 0 15%;
+        }
+        .content {
+            flex: 1;
+            overflow-y: auto;
+        }
+        .background_color {
+            background-color: #f8f9fa; /* Цвет фона */
+        }
+        .border_background_color {
+            border: 1px solid #dee2e6; /* Цвет рамки */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Навигационная панель BC Bauman_Consulting-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light p-0 m-1 mr-1 header">
+            
+            <div class="col-6"  >
+                {% include 'utils/Logo/logo.html' %}
+            </div>
+            <div class="col-6 collapse navbar-collapse mr-4 p-0 m-0" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <div class="btn-group" role="group" aria-label="Large button group">
+                        <a href="{% url 'index' %}" class="btn btn-outline-dark btn-no-border {% if request.path == '/Bauman_Consulting/' %}active{% endif %}"><b>Home</b></a>
+                        
+                        <div class="dropdown" onmouseover="showDropdown()" onmouseout="hideDropdown()">
+                            <a class="btn btn-outline-dark btn-no-border dropdown-toggle
+                                {% if '/Bauman_Consulting/Unser_Angebot/' in request.path %}
+                                    active
+                                {% endif %}
+                                {% if '/Bauman_Consulting/Technisches_Sicherheitskonzept/' in request.path %}
+                                    active
+                                {% endif %}
+                                {% if '/Bauman_Consulting/Organisatorisches_Sicherheitskonzept/' in request.path %}
+                                    active
+                                {% endif %}"
+                                href="{% url 'Unser_Angebot' %}" 
+                                id="unserAngebotDropdown" 
+                                role="button">
+                                <b>Unser Angebot</b>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="unserAngebotDropdown" id="dropdownMenu">
+                                <a class="dropdown-item {% if request.path == '/Bauman_Consulting/Technisches_Sicherheitskonzept/' %}active{% endif %}" 
+                                href="{% url 'Technisches_Sicherheitskonzept' %}">Technisches Sicherheitskonzept</a>
+                                <a class="dropdown-item {% if request.path == '/Bauman_Consulting/Organisatorisches_Sicherheitskonzept/' %}active{% endif %}" 
+                                href="{% url 'Organisatorisches_Sicherheitskonzept' %}">Organisatorisches Sicherheitskonzept</a>
+                            </div>
+                        </div>
+                        
+                        
+                        <a href="{% url 'Literatur' %}" class="btn btn-outline-dark btn-no-border {% if request.path == '/Bauman_Consulting/Literatur/' %}active{% endif %}"><b>Literatur</b></a>
+                        <a href="{% url 'Kontakt' %}" class="btn btn-outline-dark btn-no-border {% if request.path == '/Bauman_Consulting/Kontakt/' %}active{% endif %}"><b>Kontakt</b></a>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="content background_color">
+            {% block content %}
+            <div class="container-fluid background_color border_background_color">
+                <div class="row m-2 container-fluid">
+                    <div class="col-12 col-lg-8 text-center"> </div>
+                </div>
+                <div class="row m-2 container-fluid">
+                    <div class="col-12 ">
+                        <div class="text-center">
+                            <h1>
+                                <br/>
+                                <b>Leben in Sicherheit geht uns alle an…</b>
+                            </h1>
+                        </div>
+                         
+                        <div class="image-container  m-2 p-0">
+                            <img src="{% static 'images/KKL2.1.jpg' %}">
+                        </div>
+                        <div class="row p-0">  
+                            <div class="col-6 p-0  "> 
+                                <b>Kontakt</b>  <br/>
+                                <b>Baumann Consulting</b> <span class=" col-4 footer-link link-light"><a
+                                            href="https://www.linkedin.com/in/peter-baumann-011b1358/">LinkedIn</a></span> <br/>
+                                Dr. Peter Baumann  <br/>
+                                Steinliacherstrasse 22 / 5085 Sulz (AG)<br/>  
+                                
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-telephone" viewBox="0 0 16 16">
+                                    <path
+                                        d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+                                </svg>
+                                +41 79 359 2116 / Schweiz   <br/>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-envelope" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                                </svg>
+                                Peter.Baumann.Sulz@bluewin.ch <br/>
+                                
+                            </div> 
+                             
+                            <div class="col-6 p-0  "> 
+                                <b>Unternehmensprofil</b> <br/> 
+                                Baumann Consulting unterstützt die Entwicklung einer sicherheitsorientierten technischen
+                                Auslegung von Strukturen, Systemen und Komponenten im Kraftwerksbereich
+                                und die dafür erforderliche sicherheitsorientierte Entwicklung von Mensch & Organisation
+                                durch Mitarbeit in Projekten und Schulung der Mitarbeiter
+                            </div> 
+                        </div>     
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+        
+        <div class="footer text-center p-2">
+            <div>© Website 2024</div>
+        </div>
+    </div>
+    <script>
+        function showDropdown() {
+            document.getElementById("dropdownMenu").style.display = "block";
+        }
+
+        function hideDropdown() {
+            document.getElementById("dropdownMenu").style.display = "none";
+        }
+    </script>
+    <!-- Подключение скриптов Bootstrap и jQuery (необходимо для некоторых функций Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

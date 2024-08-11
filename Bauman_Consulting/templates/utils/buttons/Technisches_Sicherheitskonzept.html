@@ -1,0 +1,47 @@
+{% extends 'Home.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="container-fluid background_color border_background_color">
+    <div class="row m-2 container-fluid">
+        <div class="col-12 col-lg-8 text-center"> </div>
+    </div>
+    <div class="row m-2 container-fluid">
+        <div class="col-12 ">
+            <div class="text-center">
+                <h1>
+                    <br/>
+                    <b>Technisches Sicherheitskonzept</b>
+                </h1>
+            </div>
+            <br/>
+            <div class="image-container_slim m-2 p-0">
+                <img src="{% static 'images/T1.jpg' %}">
+            </div>
+            <br/>
+            <div class="text-center divstyle">
+                <br/>
+                <h2>
+                    <b>Auslegungsgrenzen, Betriebsgrenzen und Sicherheitsmargen</b>
+                </h2>
+                <br/>
+                <h4>
+                     Die Sicherheit beim Betrieb einer komplexen Technik ist dann gegeben, wenn die<br/> 
+                        Auslegungsgrenzen der eingesetzten Technik unter allen denkbaren sowie wahrscheinlichen<br/> 
+                        Betriebsbedingungen nicht verletzt werden, im bestimmungsgemässen<br/> 
+                        Betrieb Betriebsgrenzen eingehalten werden und genügend Sicherheitsabstand zu den Auslegungsgrenzen besteht. 
+                </h4>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock %}

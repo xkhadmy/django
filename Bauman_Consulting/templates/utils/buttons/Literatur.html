@@ -1,0 +1,130 @@
+{% extends 'Home.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container-fluid background_color border_background_color">
+
+    <div class="divstyle">
+        <br/>
+        <div class="text-center">
+            <h1>
+                <br/>
+                <b>Betriebliches Sicherheitsmanagement</b>
+            </h1>
+        </div>
+        <br/>
+        <div class="row m-1 container-fluid">
+            <div class="col-12 col-lg-5 text-center may-border">
+                <div class="text-center">
+                    <h4>
+                        <b>Ein Leitfaden</b>
+                    </h4>
+                </div>
+                <button type="button" class="btn btn-primary"
+                    onclick="openPDF('{% static 'pdfs/Band_1_Leseprobe.pdf' %}')">Leseprobe Band 1</button>
+                
+                <!-- Блок с изображением -->
+                <div class="image-container m-2">
+                    <!-- Добавьте свое изображение здесь, если необходимо -->
+                    <img src="{% static 'images/Band_1.jpg' %}" style="max-width: 100%; height: auto;">
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-lg-2 text-center">
+                <!-- Кнопка, которая будет открывать модальное окно -->
+                <a href="{% url 'Bestellen' %}"
+                    class="btn btn-success {% if request.path == '/Bauman_Consulting/Bestellen/' %}active{% endif %}">Bestellen</a>
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#authorModal">
+                    <b>Der Autor</b>
+                </button>
+
+                <!-- Модальное окно -->
+                <div class="modal fade" id="authorModal" tabindex="-1" role="dialog" aria-labelledby="authorModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="authorModalLabel">Informationen zum Autor</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-5"><img src="{% static 'images/Autor.png' %} " width="200"
+                                            height="270">
+                                    </div>
+                                    <div class="col-lg-7" style="text-align: left;  font-size: 14px;">
+                                        Dr. Ing. Dipl. Phys. Peter Baumann studierte Physik an der Universität
+                                        Karls-ruhe, wo er auch an der Fakultät für Chemie-Ingenieurwesen am Institut
+                                        für
+                                        Thermische Verfahrenstechnik zur Thermohydraulik in horizontalen Rohren
+                                        promovierte.
+                                        Sein beruflicher Werdegang führte ihn zunächst in die wärmetechnische
+                                        Entwicklung der ABB Kraftwerke AG in Baden (Schweiz) und von dort in die
+                                        Kernkraftwerk Leibstadt AG, in der er bis zu seiner Pensionierung 2024 in
+                                        unterschiedlichen Arbeitsgebieten und in
+                                        unterschiedlichen Funktionen tätig war.
+                                        Schwerpunkte seiner Tätigkeiten
+                                        waren: </div>
+                                </div>
+                                <div style="text-align: left;">
+                                    • Thermohydraulische Analysen<br>
+                                    • Die sicherheitstechnische Auslegung eines Kernkraftwerkes<br>
+                                    • Aufbau der Gruppe Auslegungstechnik in der Abteilung Sicherheit<br>
+                                    • Entwicklung von Leitfäden für Sicherheitsüberprüfungen und die Bearbeitung
+                                    von Sicherheitsfragen im Allgemeinen<br>
+                                    • Behördenkontakte, Regelwerkskonformität und periodische
+                                    Sicherheitsüberprüfung<br>
+                                    • Risiko-Controlling<br>
+                                </div>
+                                <div style="text-align: left;">
+                                    Seit 2004 ist Peter Baumann nebenberuflich tätig. Er berät seine Kunden aus
+                                    der
+                                    Kernenergiebranche in allen Sicherheitsfragen, vornehmlich mit Bezug zur
+                                    Anlagenauslegung. Ausserdem führt er Schulungen zur Umsetzung von
+                                    Regelwerksanforderungen für Zulieferfirmen von Produkten und
+                                    Dienstleistungen
+                                    sowie für Kraftwerkspersonal durch.
+                                    Er lebt in Laufenburg, Schweiz.
+                                </div>
+
+
+                            </div>
+                            <div class=" modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-12 col-lg-5 text-center may-border">
+                <div class="text-center">
+                    <h4>
+                        <b>… für Kernkraftwerke</b>
+                    </h4>
+                </div>
+                <button type="button" class="btn btn-primary"
+                    onclick="openPDF('{% static 'pdfs/Band_2_Leseprobe.pdf' %}')">Leseprobe Band 2</button>
+                 
+                <!-- Блок с изображением -->
+                <div class="image-container m-2">
+                    <!-- Добавьте свое изображение здесь, если необходимо -->
+                    <img src="{% static 'images/Band_2.jpg' %} " style="max-width: 100%; height: auto;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function openPDF(pdfPath) {
+        // Открывает PDF в новом окне браузера
+        window.open(pdfPath, '_blank');
+    }
+</script>
+{% endblock %}

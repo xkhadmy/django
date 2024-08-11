@@ -1,0 +1,263 @@
+.big_bc_orange {
+    color: orange;
+    font-size: 35px;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 900;
+    transform: scaleY(1.2);
+}
+
+
+
+
+.background_color {
+    background: rgb(225, 225, 233);
+    /* background: linear-gradient(90deg, rgb(211, 211, 211) 35%, rgb(206, 206, 198) 35%, rgb(214, 214, 212) 35%); */
+}
+
+.border_background_color {
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(189, 189, 190);
+}
+
+.border_error {
+    border-width: 2px;
+    border-style: solid;
+    border-color: brown;
+}
+
+.btn-circle {
+    border-radius: 50%;
+    width: 50px;
+    /* Выберите желаемую ширину и высоту */
+    height: 50px;
+    text-align: center;
+    padding: 40px;
+    /* Используйте отступы, чтобы отцентрировать содержимое внутри кнопки */
+    display: inline-block;
+    border-color: rgb(26, 25, 25);
+}
+
+.btn-no-border {
+    border: none;
+}
+
+.btn-group a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn-group a.active {
+    background-color: #007bff;
+    /* Измените цвет фона на ваш выбор */
+    color: #ffffff;
+    /* Измените цвет текста на ваш выбор */
+}
+
+.divstyle {
+    width: 100%;
+    max-width: 1500px;
+    /* Максимальная ширина контейнера */
+    margin: 0 auto;
+    /* Центрирование контейнера по горизонтали */
+    box-sizing: border-box;
+    /* Учитываем padding и border в общей ширине */
+    padding: 0 20px;
+    /* Добавляем небольшие отступы слева и справа */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    /* Высота контейнера по умолчанию */
+}
+
+.image-container_slim {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    /* Высота контейнера по умолчанию */
+}
+
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+
+    /* Медиа-запрос для устройств с шириной экрана до 768px (мобильные устройства) */
+    .image-container {
+        height: 10vh;
+        /* Уменьшаем высоту контейнера для мобильных устройств */
+    }
+}
+
+.full-height-container {
+    height: 50vh;
+    /* Устанавливаем высоту блока равной высоте окна браузера */
+}
+
+.custom_form {
+    max-width: 550px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #cac8c8;
+    /* Цвет фона формы */
+    padding: 10px;
+    /* Добавляем немного отступа вокруг элементов формы */
+}
+
+.custom_form2 {
+    max-width: 550px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #cac8c8;
+    /* Цвет фона формы */
+    padding: 10px;
+    /* Добавляем немного отступа вокруг элементов формы */
+}
+
+label,
+input,
+select {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.button_1 {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Устанавливаем стили для контейнера чекбокса и текста */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Устанавливаем отступ справа у текста */
+.checkbox-container label {
+    margin-right: 5px;
+}
+
+.btn-outline-dark {
+    border: 2px solid black !important;
+    /* Усиливаем стиль контура */
+    color: black;
+    /* Цвет текста */
+}
+
+.btn-group.btn-group a {
+    margin-right: 10px;
+    /* Устанавливаем отступ справа между кнопками */
+}
+
+.may-border {
+    border: 2px solid black !important;
+    /* Усиливаем стиль контура */
+    color: black;
+    /* Цвет текста */
+}
+
+.stripe {
+    width: 100%;
+    /* Задаем ширину */
+    height: 20px;
+    /* Задаем высоту */
+    text-align: center;
+    /* Выравниваем текст по центру */
+    line-height: 50px;
+    /* Центрируем текст по вертикали */
+    font-weight: bold;
+    /* Делаем текст жирным */
+}
+
+.orange {
+    background-color: orange;
+    /* Оранжевый фон */
+    color: white;
+    /* Белый цвет текста */
+}
+
+.black {
+    background-color: black;
+    /* Черный фон */
+    color: white;
+    /* Белый цвет текста */
+}
+
+/* Медиа-запрос для мобильных устройств с шириной экрана до 320px */
+@media screen and (max-width: 320px) {
+    h1 {
+        font-size: 8px;
+        /* Новый размер шрифта для мобильных устройств шириной до 320px */
+        /* Дополнительные стили для мобильных устройств */
+    }
+}
+
+/* Медиа-запрос для мобильных устройств с шириной экрана от 321px до 480px */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 22px;
+        /* Новый размер шрифта для мобильных устройств шириной до 320px */
+        /* Дополнительные стили для мобильных устройств */
+    }
+}
+
+/* Медиа-запрос для мобильных устройств с шириной экрана до 320px */
+@media screen and (max-width: 320px) {
+    h4 {
+        font-size: 6px;
+        /* Новый размер шрифта для мобильных устройств шириной до 320px */
+        /* Дополнительные стили для мобильных устройств */
+    }
+}
+
+/* Медиа-запрос для мобильных устройств с шириной экрана от 321px до 480px */
+@media screen and (max-width: 480px) {
+    h4 {
+        font-size: 18px;
+        /* Новый размер шрифта для мобильных устройств шириной до 320px */
+        /* Дополнительные стили для мобильных устройств */
+    }
+}
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.wrapper {
+    width: 95%;
+    /* Ограничение ширины контейнера */
+    margin: 0 auto;
+    /* Центрирование контейнера */
+    padding: 20px;
+    /* Внутренний отступ */
+    background-color: #f9f9f9;
+    /* Фоновый цвет */
+}
